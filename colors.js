@@ -41,6 +41,18 @@ function drawHsl(canvas, start, end) {
     f.apply(this, arguments);
 }
 
+// HSV
+function drawHsv(canvas, start, end) {
+    var f = getDrawFunction('hue', 'saturationv', 'value');
+    f.apply(this, arguments);
+}
+
+// CMYK
+function drawCmyk(canvas, start, end) {
+    var f = getDrawFunction('cyan', 'magenta', 'yellow', 'black');
+    f.apply(this, arguments);
+}
+
 // Main doc handler
 
 $(document).ready(function() {
@@ -52,6 +64,8 @@ $(document).ready(function() {
 
         drawRgb($('#results div.canvas.rgb'), start, end);
         drawHsl($('#results div.canvas.hsl'), start, end);
+        drawHsv($('#results div.canvas.hsv'), start, end);
+        drawCmyk($('#results div.canvas.cmyk'), start, end);
         return false;
     });
 
